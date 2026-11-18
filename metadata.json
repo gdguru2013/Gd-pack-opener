@@ -1,0 +1,6 @@
+{
+  "name": "DashPacks",
+  "description": "Geometry Dash difficulty pack opener and live level collector powered by GDBrowser, Pointercrate, AREDL, Insane Demon List, and Pemonlist.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,137 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+    --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #0b0f17;
+    color: #f1f5f9;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.gd-grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@keyframes pack-shake {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+  20% { transform: translate3d(-4px, -2px, 0) rotate(-2deg) scale(1.03); }
+  40% { transform: translate3d(4px, 2px, 0) rotate(2deg) scale(1.04); }
+  60% { transform: translate3d(-3px, 1px, 0) rotate(-1.5deg) scale(1.05); }
+  80% { transform: translate3d(3px, -1px, 0) rotate(1.5deg) scale(1.03); }
+}
+
+.animate-pack-shake {
+  animation: pack-shake 0.45s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pack-shake {
+    animation: none;
+  }
+  .variant-shimmer::before {
+    animation: none !important;
+  }
+}
+
+@keyframes holo-sweep {
+  0% { transform: translate3d(-120%, 0, 0) skewX(-18deg); }
+  100% { transform: translate3d(220%, 0, 0) skewX(-18deg); }
+}
+
+.variant-gold-holo {
+  background: linear-gradient(145deg, #1b1710 0%, #241c0d 50%, #14120d 100%);
+  box-shadow: 0 12px 28px -14px rgba(251, 191, 36, 0.35);
+}
+
+.variant-rainbow {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(56, 189, 248, 0.14) 0%,
+      rgba(168, 85, 247, 0.14) 25%,
+      rgba(236, 72, 153, 0.14) 50%,
+      rgba(250, 204, 21, 0.14) 75%,
+      rgba(52, 211, 153, 0.14) 100%
+    ),
+    #131926;
+  box-shadow: 0 12px 30px -12px rgba(56, 189, 248, 0.32);
+}
+
+.variant-void {
+  background:
+    radial-gradient(circle at 85% 15%, rgba(167, 139, 250, 0.22), transparent 55%),
+    radial-gradient(circle at 15% 85%, rgba(76, 29, 149, 0.28), transparent 60%),
+    #070511;
+  box-shadow: 0 14px 34px -12px rgba(139, 92, 246, 0.42);
+}
+
+.variant-darkmatter {
+  background:
+    radial-gradient(circle at 80% 18%, rgba(244, 63, 94, 0.26), transparent 52%),
+    radial-gradient(circle at 20% 82%, rgba(190, 24, 93, 0.22), transparent 58%),
+    #06040a;
+  box-shadow: 0 16px 38px -10px rgba(244, 63, 94, 0.48);
+}
+
+.variant-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.variant-shimmer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 45%;
+  pointer-events: none;
+  opacity: 0.22;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 100%
+  );
+  animation: holo-sweep 4.5s ease-in-out infinite;
+}
+
+@keyframes rare-charge {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.02); }
+  20% { transform: translate3d(-3px, -2px, 0) rotate(-1.2deg) scale(1.04); }
+  40% { transform: translate3d(3px, 2px, 0) rotate(1.2deg) scale(1.05); }
+  60% { transform: translate3d(-3px, 1px, 0) rotate(-1deg) scale(1.06); }
+  80% { transform: translate3d(3px, -2px, 0) rotate(1deg) scale(1.04); }
+}
+
+.animate-rare-charge {
+  animation: rare-charge 0.36s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rare-charge {
+    animation: none;
+  }
+}
+
+
